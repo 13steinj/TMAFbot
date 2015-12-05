@@ -1,3 +1,4 @@
+from __future__ import print_function
 import praw
 
 # creates sets where the posts it has already counted are stored.
@@ -10,8 +11,8 @@ nl = "\n"
 s = r.get_subreddit(subName)
 subreddit_posts = s.get_top_from_week(limit=10)
 for post in subreddit_posts:
-		print(post.score))
-		print(post.title
+		print(post.score)
+		print(post.title)
 		filename='TMAFbot/TMAFbot.txt'
 		post_score = str(post.score)
 		post_title = '**{0}**'.format(post.title)
@@ -20,7 +21,7 @@ for post in subreddit_posts:
 		obj.write(nl + '***' + nl + nl + strpost_score)
 		obj.write(post_title + nl + nl + '***' + nl)
 		obj.close()
-		submission = r.get_submission(submission_id = post.id)
+		submission = r.get_submission(submission_id=post.id)
 		for comment in submission.comments:
 			commentstr = comment.body
 			comment_score = str(comment.score)
